@@ -54,3 +54,10 @@ Only accepts POST requests and json formatted data otherwise throws error.
 @app.route('/titles', methods=['POST'])
 ```
 Receives the data in json format, then uses the Datastore python library to create a batch operation and send the data to be stored in an *Datastore.Entity* named **Titles**.
+
+## Improvement
+The query url is very basic, it only allows querying data using one parameter, the number of entries to retrieve, witch gives very limited use to the API.
+With enough time, more options should be added to the query endpoint:
+- Filter entries based on user criteria
+- Order entries depending on user preferences
+- Pagination for a better user experience
