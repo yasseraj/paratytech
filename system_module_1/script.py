@@ -6,7 +6,7 @@ import requests
 # Set the argument parser and parse argument
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--file", required=True, help="path to input file", default="resources/netflix_titles.csv")
-ap.add_argument("-e", "--endpoint", required=True, help="endpoint url", default="https://my-project-1487175171975.ew.r.appspot.com/titles")
+ap.add_argument("-e", "--endpoint", required=True, help="endpoint url to post data", default="http://localhost:8080/titles")
 args = vars(ap.parse_args())
 # get input file path
 file_path = args["file"]

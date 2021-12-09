@@ -30,12 +30,12 @@ def postDataHandler():
     content = request.get_json()
     data = json.loads(content)
     # Store the data in Datastore
-    store_title(data)
+    store_titles(data)
     # Return success status
     status_code = Response(status=200)
     return status_code
 
-def store_title(titles):
+def store_titles(titles):
     """Creates a batch job to put the data in google cloud datastore"""
     batch = datastore_client.batch()
     batch.begin()
