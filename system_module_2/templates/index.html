@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Paratytech test</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
 </head>
 <body>
-$END$
+<div class="container">
+    <h1>Paratytech test</h1>
+    <hr>
+    <table id="data" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release year</th>
+            <th>Added on</th>
+            <th>Duration</th>
+            <th>Rating</th>
+            <th>Country</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for title in titles %}
+        <tr>
+            <td>{{ title.type }}</td>
+            <td>{{ title.title }}</td>
+            <td>{{ title.director }}</td>
+            <td>{{ title.release_year }}</td>
+            <td>{{ title.date_added }}</td>
+            <td>{{ title.duration }}</td>
+            <td>{{ title.rating }}</td>
+            <td>{{ title.country }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#data').DataTable();
+    });
+</script>
 </body>
 </html>
